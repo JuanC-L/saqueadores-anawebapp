@@ -12,3 +12,4 @@ nltk
 matplotlib
 streamlit-lottie
 requests
+openpyxl
