@@ -24,18 +24,6 @@ warnings.filterwarnings('ignore')
 # Crea la cadena de conexión sin usuario y contraseña (usando la autenticación de Windows)
 
 
-server = '(localdb)\inge'  # Puedes usar '.' para el servidor local
-database = 'OPUS_HUB'
-
-# Crea la cadena de conexión sin usuario y contraseña (usando la autenticación de Windows)
-conn_str = (
-    f'DRIVER={{ODBC Driver 17 for SQL Server}};'
-    f'SERVER={server};'
-    f'DATABASE={database};'
-    f'Trusted_Connection=yes;'  # Utiliza la autenticación de Windows
-)
-conn = pyodbc.connect(conn_str)
-
 
 
 # Load the Excel file into a DataFrame
