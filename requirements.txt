@@ -12,5 +12,3 @@ nltk
 matplotlib
 streamlit-lottie
 requests
-json
-warnings
