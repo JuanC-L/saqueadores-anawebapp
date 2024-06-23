@@ -1,0 +1,16 @@
+streamlit
+pandas
+plost
+plotly
+plotly.express
+pyodbc
+streamlit_authenticator
+streamlit-option-menu
+geopy
+wordcloud
+nltk
+matplotlib
+streamlit-lottie
+requests
+json
+warnings
