@@ -149,7 +149,16 @@ if selected == "Home":
         # Add additional content as shown in the image
         st.markdown("<div class='content' style='font-size: 18px; padding-bottom: 30px;'>Proyecto que busca dar visibilidad y trazabilidad a las personas desaparecidas en Perú. Se hace uso de datos del RENIPED actualizados diariamente para un análisis y predicción de estos.</div>", unsafe_allow_html=True)
 
-        st.image("images\desap.png", use_column_width=True)
+
+        # Correct the image path
+        image_path = os.path.join(os.path.dirname(__file__), 'images', 'desap.png')
+
+        # Ensure the file exists
+        if os.path.exists(image_path):
+            st.sidebar.image(image_path, use_column_width=True)
+        else:
+            st.sidebar.error(f"Image file not found: {image_path}")
+
         with st.expander('About', expanded=True):
             st.write('''
                 - Datos: [Historico 2024](https://desaparecidosenperu.policia.gob.pe/WebDesaparecidos/documento/2024.xlsx).
