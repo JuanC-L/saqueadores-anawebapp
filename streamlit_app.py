@@ -155,9 +155,9 @@ if selected == "Home":
 
         # Ensure the file exists
         if os.path.exists(image_path):
-            st.sidebar.image(image_path, use_column_width=True)
+            st.image(image_path, use_column_width=True)
         else:
-            st.sidebar.error(f"Image file not found: {image_path}")
+            st.error(f"Image file not found: {image_path}")
 
         with st.expander('About', expanded=True):
             st.write('''
