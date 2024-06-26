@@ -242,7 +242,8 @@ if selected=='Busqueda de Personas':
 
 
 if selected=="Dashboards 1":
-    st.title('Dashboard de Personas Desaparecidas')
+    #st.title('Dashboard de Personas Desaparecidas')
+    st.title('Aun en desarrollo')
     
 ### segundo dashboard: LIBROS
 if selected=="Dashboards 2":
