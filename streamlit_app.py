@@ -370,7 +370,6 @@ col1, col2 = st.columns([4, 3])
 
 # Mostrar la tabla en la primera columna
 with col1:
-    st.header(f'Apriori: {selected_sheet}')
     st.dataframe(df)
 
 # Mostrar la imagen en la segunda columna
