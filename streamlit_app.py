@@ -28,21 +28,26 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
-# Ruta del archivo JSON con las credenciales
-#credentials_file = 'genial-bonbon-427315-j6-7fdf1ca74270.json'
+# # Ruta del archivo JSON con las credenciales
+# credentials_file = 'genial-bonbon-427315-j6-7fdf1ca74270.json'
 
-# Autenticar y crear un cliente
-sa = gspread.service_account(st.secrets["gcp_service_account"])
-sh = sa.open("desaparecidosdb")
+# # Autenticar y crear un cliente
+# sa = gspread.service_account(st.secrets["gcp_service_account"])
+# sh = sa.open("desaparecidosdb")
 
-# Seleccionar la hoja (worksheet)
-wks = sh.worksheet('Hoja 1')
+# # Seleccionar la hoja (worksheet)
+# wks = sh.worksheet('Hoja 1')
 
-# Obtener todos los registros
-records = wks.get_all_records()
+# # Obtener todos los registros
+# records = wks.get_all_records()
 
-# Convertir los registros a un DataFrame de pandas
-df = pd.DataFrame.from_records(records)
+# # Convertir los registros a un DataFrame de pandas
+# df = pd.DataFrame.from_records(records)
+
+file_path = "desaparecidosdb3.xlsx"
+df = pd.read_excel(file_path)
+
+
 df['estatura'] = pd.to_numeric(df['estatura'], errors='coerce')
 df['horas_para_aparecer'] = pd.to_numeric(df['horas_para_aparecer'], errors='coerce')
 df['aparecido'] = pd.to_numeric(df['aparecido'], errors='coerce')
@@ -95,11 +100,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-image_path = os.path.join(os.path.dirname(__file__), 'images', 'saqueadoreslogo.png')
-if os.path.exists(image_path):
-    st.sidebar.image(image_path, use_column_width=True)
-else:
-    st.sidebar.error(f"Image file not found: {image_path}")
+st.sidebar.image("images\saqueadoreslogo.png", use_column_width=True)
 
 st.sidebar.markdown("<h1 class='sidebar-title' style='text-align:center;'>Los Saqueadores</h1>", unsafe_allow_html=True)
 
@@ -125,11 +126,12 @@ if selected == "Home":
 
     with col2:
         st.markdown("<div class='content' style='font-size: 18px; padding-bottom: 30px;'>Proyecto que busca dar visibilidad y trazabilidad a las personas desaparecidas en Perú. Se hace uso de datos del RENIPED actualizados diariamente para un análisis y predicción de estos.</div>", unsafe_allow_html=True)
-        image_path = os.path.join(os.path.dirname(__file__), 'images', 'desap.png')
-        if os.path.exists(image_path):
-            st.image(image_path, use_column_width=True)
-        else:
-            st.error(f"Image file not found: {image_path}")
+        st.image("images\desap.png", use_column_width=True)
+        # image_path = os.path.join(os.path.dirname(__file__), 'images', 'desap.png')
+        # if os.path.exists(image_path):
+        #     st.image(image_path, use_column_width=True)
+        # else:
+        #     st.error(f"Image file not found: {image_path}")
 
         with st.expander('About', expanded=True):
             st.write('''
