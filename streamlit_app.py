@@ -404,7 +404,7 @@ if selected == "Clusters":
     # Mostrar la imagen en la segunda columna
     with col2:
         st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
-        st.image('images/tnse.png', caption='', use_column_width=True)
+        st.image('images/tnse.jpeg', caption='', use_column_width=True)
 
 
 if selected == "ARIMA":
