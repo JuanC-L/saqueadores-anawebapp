@@ -406,8 +406,6 @@ if selected == "Clusters":
         st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
         st.image('images/tnse.jpeg', caption='', use_column_width=True)
 
-    #st.header('Perfiles de Personas Desaparecidas')
-    st.subheader('Perfil 1:')
 
 
 if selected == "ARIMA":
