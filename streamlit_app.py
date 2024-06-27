@@ -366,16 +366,17 @@ if selected == "Apriori":
     df = pd.read_excel(file_path, sheet_name=selected_sheet)
 
     # Mostrar la tabla de manera estética
-col1, col2 = st.columns([4, 3])
+    col1, col2 = st.columns([4, 3])
 
-# Mostrar la tabla en la primera columna
-with col1:
-    st.dataframe(df)
+    # Mostrar la tabla en la primera columna
+    with col1:
+        st.header(f'Apriori: {selected_sheet}')
+        st.dataframe(df)
 
-# Mostrar la imagen en la segunda columna
-with col2:
-    st.markdown("<h4 style='text-align: center;'>Apriori Algorithm</h2>", unsafe_allow_html=True)
-    st.image('images/apriori.png', caption='Apriori Algorithm', use_column_width=True)
+    # Mostrar la imagen en la segunda columna
+    with col2:
+        st.markdown("<h4 style='text-align: center;'>Apriori Algorithm</h2>", unsafe_allow_html=True)
+        st.image('images/apriori.png', caption='Apriori Algorithm', use_column_width=True)
 
 
 
