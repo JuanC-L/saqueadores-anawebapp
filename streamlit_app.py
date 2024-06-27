@@ -296,10 +296,6 @@ if selected == "Dashboards 1":
             fig_time = px.line(df_time, x='Fecha de Denuncia', y='Número de Personas', title='Personas Desaparecidas a lo Largo del Tiempo', color_discrete_sequence=['#AB63FA'])
             st.plotly_chart(fig_time)
             
-    with st.sidebar:
-        st.markdown("<h2 style='color: #FF6F61;'>Filtros</h2>", unsafe_allow_html=True)
-        st.markdown("<hr style='border: 1px solid #FF6F61;'>", unsafe_allow_html=True)
-        # Filtros adicionales pueden ser añadidos aquí
 
     # Footer
     st.markdown("<hr style='border: 1px solid #FF6F61;'>", unsafe_allow_html=True)
