@@ -407,7 +407,7 @@ if selected == "Clusters":
         st.image('images/tnse.jpeg', caption='', use_column_width=True)
 
     st.header('Perfiles')
-    st.image('images/perfiles.png', caption='', use_column_width=True)
+    st.image('images/perfiles.png', caption='')
 
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
