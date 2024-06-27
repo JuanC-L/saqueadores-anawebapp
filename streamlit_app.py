@@ -390,7 +390,7 @@ if selected == "Clusters":
         "Cluster_0_vs_Cluster_1": [-0.002641, 0.190385, 3.573445, 0.046478, 0.025184],
         "Cluster_1_vs_Cluster_0": [0.002801, -0.182160, -3.359249, -0.047260, -0.025308]
     }
-    cluster_index = ["Horas para Denunciar", "LUGAR DEL HECHO", "Instructor Policial", "EDAD", "ESTATURA", "NARIZ", "TEZ", "SANGRE", "CONTEXTURA", "FENOTIPO"]
+    cluster_index = ["Horas para Denunciar", "LUGAR DEL HECHO", "Instructor Policial", "EDAD", "ESTATURA"]
     cluster_df = pd.DataFrame(cluster_data, index=cluster_index)
     
     col1, col2 = st.columns([4, 3])
@@ -403,39 +403,38 @@ if selected == "Clusters":
 
     # Mostrar la imagen en la segunda columna
     with col2:
-
-        st.header('Perfiles de Personas Desaparecidas')
-        st.subheader('Perfil 1:')
-        st.markdown('''
-        - *Denuncia Inmediata*: Las denuncias suelen presentarse casi inmediatamente.
-        - *Lugar del Hecho Específico*: Las desapariciones tienden a ocurrir en lugares específicos o identificables.
-        - *Relación con Instructor Policial*: Alta probabilidad de tener algún tipo de relación con un instructor policial.
-        - *Edad*: Ligeramente mayores que el promedio.
-        - *Estatura*: Ligeramente más altos que el promedio.
-        - *Nariz Prominente*: Forma de la nariz más prominente.
-        - *Tez Ligeramente Más Oscura*: Tez con una ligera variación negativa respecto al promedio.
-        - *Tipo de Sangre*: Muestra una mínima variación positiva respecto al promedio.
-        - *Contextura Robusta*: Ligeramente más robustos que el promedio.
-        - *Fenotipo Variado*: Características físicas con variaciones negativas respecto al promedio.
-        ''')
-
-        st.subheader('Perfil 2:')
-        st.markdown('''
-        - *Denuncia Levemente Demorada*: Las denuncias tienden a presentarse con una mínima variación positiva en el tiempo.
-        - *Lugar del Hecho Menos Específico*: Las desapariciones tienden a ocurrir en lugares menos específicos.
-        - *Sin Relación con Instructor Policial*: Menos probabilidad de tener relación con un instructor policial.
-        - *Edad*: Ligeramente menores que el promedio.
-        - *Estatura*: Ligeramente más bajos que el promedio.
-        - *Nariz Menos Prominente*: Forma de la nariz menos prominente.
-        - *Tez Ligeramente Más Clara*: Tez con una ligera variación positiva respecto al promedio.
-        - *Tipo de Sangre*: Muestra una mínima variación negativa respecto al promedio.
-        - *Contextura Menos Robusta*: Ligeramente menos robustos que el promedio.
-        - *Fenotipo Consistente*: Características físicas con variaciones positivas respecto al promedio.
-        ''')
-        # st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
-        # st.image('images/tnse.jpeg', caption='', use_column_width=True)
+        st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
+        st.image('images/tnse.jpeg', caption='', use_column_width=True)
 
 
+    st.header('Perfiles de Personas Desaparecidas')
+    st.subheader('Perfil 1:')
+    st.markdown('''
+    - *Denuncia Inmediata*: Las denuncias suelen presentarse casi inmediatamente.
+    - *Lugar del Hecho Específico*: Las desapariciones tienden a ocurrir en lugares específicos o identificables.
+    - *Relación con Instructor Policial*: Alta probabilidad de tener algún tipo de relación con un instructor policial.
+    - *Edad*: Ligeramente mayores que el promedio.
+    - *Estatura*: Ligeramente más altos que el promedio.
+    - *Nariz Prominente*: Forma de la nariz más prominente.
+    - *Tez Ligeramente Más Oscura*: Tez con una ligera variación negativa respecto al promedio.
+    - *Tipo de Sangre*: Muestra una mínima variación positiva respecto al promedio.
+    - *Contextura Robusta*: Ligeramente más robustos que el promedio.
+    - *Fenotipo Variado*: Características físicas con variaciones negativas respecto al promedio.
+    ''')
+
+    st.subheader('Perfil 2:')
+    st.markdown('''
+    - *Denuncia Levemente Demorada*: Las denuncias tienden a presentarse con una mínima variación positiva en el tiempo.
+    - *Lugar del Hecho Menos Específico*: Las desapariciones tienden a ocurrir en lugares menos específicos.
+    - *Sin Relación con Instructor Policial*: Menos probabilidad de tener relación con un instructor policial.
+    - *Edad*: Ligeramente menores que el promedio.
+    - *Estatura*: Ligeramente más bajos que el promedio.
+    - *Nariz Menos Prominente*: Forma de la nariz menos prominente.
+    - *Tez Ligeramente Más Clara*: Tez con una ligera variación positiva respecto al promedio.
+    - *Tipo de Sangre*: Muestra una mínima variación negativa respecto al promedio.
+    - *Contextura Menos Robusta*: Ligeramente menos robustos que el promedio.
+    - *Fenotipo Consistente*: Características físicas con variaciones positivas respecto al promedio.
+    ''')
 
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
