@@ -20,6 +20,8 @@ import warnings
 import plotly.graph_objects as go
 import altair as alt
 import os
+import folium
+from streamlit_folium import st_folium
 warnings.filterwarnings('ignore')
 
 # Crea la cadena de conexión sin usuario y contraseña (usando la autenticación de Windows)
@@ -50,6 +52,7 @@ df = pd.read_excel(file_path)
 
 df['estatura'] = pd.to_numeric(df['estatura'], errors='coerce')
 df['horas_para_aparecer'] = pd.to_numeric(df['horas_para_aparecer'], errors='coerce')
+df['horas_para_denunciar'] = pd.to_numeric(df['horas_para_denunciar'], errors='coerce')
 df['aparecido'] = pd.to_numeric(df['aparecido'], errors='coerce')
 
 
@@ -148,7 +151,7 @@ if selected == "Home":
         with st.expander('About', expanded=True):
             st.write('''
                 - Datos: [Historico 2024](https://desaparecidosenperu.policia.gob.pe/WebDesaparecidos/documento/2024.xlsx).
-                - Información Importante: No se
+                - Información Importante: Son datos referenciales
                 - Hora de Actualización: 8:00 a.m.
                 ''')
 
@@ -203,6 +206,7 @@ if selected == 'Busqueda de Personas':
                         st.write(f"**Lugar del Hecho:** {row['lugar_hecho']}")
                         st.write(f"**Fecha de Denuncia:** {row['fecha_denuncia']}")
                         st.write(f"**Fecha del Hecho:** {row['fecha_hecho']}")
+                        st.write(f"**Circunstancias:** {row['circunstancias']}")
                         st.write(f"**Aparecido:** {'Sí' if row['aparecido'] else 'No'}")
                         st.write(f"**Fecha de Aparición:** {row['fecha_aparicion'] if pd.notna(row['fecha_aparicion']) else 'N/A'}")
                         st.write(f"**Hora de Aparición:** {row['hora_aparicion'] if pd.notna(row['hora_aparicion']) else 'N/A'}")
@@ -353,7 +357,29 @@ if selected == "Dashboard":
 
 if selected == "Apriori":
     st.header('Patrones frecuentes y reglas de asociación')
-   
+    file_path = 'Resultados_apriori.xlsx'
+    excel_data = pd.ExcelFile(file_path)
+
+    # Mostrar las hojas del archivo Excel
+    sheet_names = excel_data.sheet_names
+    selected_sheet = st.selectbox('Selecciona una hoja', sheet_names)
+
+    # Cargar la hoja seleccionada
+    df = pd.read_excel(file_path, sheet_name=selected_sheet)
+
+    # Mostrar la tabla de manera estética
+col1, col2 = st.columns([4, 3])
+
+# Mostrar la tabla en la primera columna
+with col1:
+    st.header(f'Apriori: {selected_sheet}')
+    st.dataframe(df)
+
+# Mostrar la imagen en la segunda columna
+with col2:
+    st.markdown("<h4 style='text-align: center;'>Apriori Algorithm</h2>", unsafe_allow_html=True)
+    st.image('images/apriori.png', caption='Apriori Algorithm', use_column_width=True)
+
 
 
 if selected == "Random Forest":
