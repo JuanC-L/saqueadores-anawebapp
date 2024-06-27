@@ -411,6 +411,6 @@ if selected == "Clusters":
 
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
-    col1, col2 = st.columns([2, 1])
+    col1, col2 = st.columns([5, 1])
     with col1:
         st.image('images/arima.jpeg', caption='', use_column_width=True)
