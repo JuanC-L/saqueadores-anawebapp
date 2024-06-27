@@ -27,13 +27,22 @@ warnings.filterwarnings('ignore')
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
+from dotenv import load_dotenv
 
 # Ruta del archivo JSON con las credenciales
 credentials_file = 'genial-bonbon-427315-j6-7fdf1ca74270.json'
 
 # Autenticar y crear un cliente
-sa = gspread.service_account(filename=credentials_file)
-sh = sa.open("desaparecidosdb")
+# sa = gspread.service_account(filename=credentials_file)
+# sh = sa.open("desaparecidosdb")
+
+
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+credentials = ServiceAccountCredentials.from_json_keyfile_name(st.secrets["gcp_service_account"], scope)
+client = gspread.authorize(credentials)
+
+# Abrir la hoja de cálculo
+sh = client.open("desaparecidosdb")
 
 # Seleccionar la hoja (worksheet)
 wks = sh.worksheet('Hoja 1')
