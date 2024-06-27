@@ -27,7 +27,6 @@ warnings.filterwarnings('ignore')
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
-from google.cloud import bigquery
 
 # Ruta del archivo JSON con las credenciales
 credentials_file = 'genial-bonbon-427315-j6-7fdf1ca74270.json'
