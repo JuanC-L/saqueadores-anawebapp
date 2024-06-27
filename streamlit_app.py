@@ -20,8 +20,6 @@ import warnings
 import plotly.graph_objects as go
 import altair as alt
 import os
-import folium
-from streamlit_folium import st_folium
 warnings.filterwarnings('ignore')
 
 # Crea la cadena de conexión sin usuario y contraseña (usando la autenticación de Windows)
