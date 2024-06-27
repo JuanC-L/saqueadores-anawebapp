@@ -406,9 +406,11 @@ if selected == "Clusters":
         st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
         st.image('images/tnse.jpeg', caption='', use_column_width=True)
 
-    st.header('Perfiles')
-    st.image('images/perfiles.png', caption='')
-
+    col1, col2 = st.columns([5, 1])
+    with col1:
+        st.header('Perfiles')
+        st.image('images/perfiles.png', caption='')
+        
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
     col1, col2 = st.columns([5, 1])
