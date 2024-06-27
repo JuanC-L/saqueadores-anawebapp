@@ -392,10 +392,20 @@ if selected == "Clusters":
     }
     cluster_index = ["Horas para Denunciar", "LUGAR DEL HECHO", "Instructor Policial", "EDAD", "ESTATURA", "NARIZ", "TEZ", "SANGRE", "CONTEXTURA", "FENOTIPO"]
     cluster_df = pd.DataFrame(cluster_data, index=cluster_index)
+    
+    col1, col2 = st.columns([4, 3])
 
-    # Mostrar la nueva tabla
-    st.header('Comparación de Clústeres')
-    st.dataframe(cluster_df, use_container_width=True)
+    # Mostrar la tabla en la primera columna
+    with col1:
+        # Mostrar la nueva tabla
+        st.header('Comparación de Clústeres')
+        st.dataframe(cluster_df, use_container_width=True)
+
+    # Mostrar la imagen en la segunda columna
+    with col2:
+        st.markdown("<h4 style='text-align: center;'>TSNE</h2>", unsafe_allow_html=True)
+        st.image('images/tnse.png', caption='', use_column_width=True)
+
 
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
