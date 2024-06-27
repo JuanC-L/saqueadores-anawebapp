@@ -25,18 +25,15 @@ warnings.filterwarnings('ignore')
 # Crea la cadena de conexión sin usuario y contraseña (usando la autenticación de Windows)
 
 import gspread
-from google.oauth2.service_account import Credentials
+from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
-# Cargar las credenciales del servicio desde st.secrets
-credentials_info = st.secrets["gcp_service_account"]
+# Ruta del archivo JSON con las credenciales
+#credentials_file = 'genial-bonbon-427315-j6-7fdf1ca74270.json'
 
 # Autenticar y crear un cliente
-credentials = Credentials.from_service_account_info(credentials_info)
-client = gspread.authorize(credentials)
-
-# Abrir la hoja de cálculo
-sh = client.open("desaparecidosdb")
+sa = gspread.service_account(st.secrets["gcp_service_account"])
+sh = sa.open("desaparecidosdb")
 
 # Seleccionar la hoja (worksheet)
 wks = sh.worksheet('Hoja 1')
