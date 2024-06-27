@@ -13,7 +13,7 @@ matplotlib
 streamlit-lottie
 requests
 openpyxl
-os
 oauth2client
 google.cloud
 gspread
+os
