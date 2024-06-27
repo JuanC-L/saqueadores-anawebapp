@@ -270,13 +270,20 @@ if selected == "Dashboard":
             st.plotly_chart(fig_age)
 
         with col2:
-            st.subheader('Número de Personas Desaparecidas por País de Nacimiento')
-            country_counts = df['pais_nacimiento'].value_counts().reset_index()
+            st.subheader('Número de Extranjeros Desaparecidas por País de Nacimiento')
+            df_filtrado2 = df[df['pais_nacimiento'] != 'PERU']
+            
+            # Contar los países excluyendo "PERU"
+            country_counts = df_filtrado2['pais_nacimiento'].value_counts().reset_index()
             country_counts.columns = ['País de Nacimiento', 'Número de Personas']
+            
+            # Crear el gráfico de pastel
             fig_country = px.pie(country_counts, names='País de Nacimiento', values='Número de Personas',
-                                 title='Número de Personas Desaparecidas por País de Nacimiento',
-                                 color_discrete_sequence=px.colors.qualitative.Pastel, hole=0.4)
+                                title='Número de Personas Desaparecidas por País de Nacimiento',
+                                color_discrete_sequence=px.colors.qualitative.Pastel, hole=0.4)
             fig_country.update_traces(textposition='inside', textinfo='percent+label')
+            
+            # Mostrar el gráfico en Streamlit
             st.plotly_chart(fig_country)
 
         with col1:
