@@ -384,6 +384,7 @@ if selected == "Mapa De Calor":
     st.header('Mapa De Calor')
     html_file_path = 'mapa_interactivo.html'
     with open(html_file_path, 'r', encoding='utf-8') as f:
+        import streamlit.components.v1 as components
         html_content = f.read()
         components.html(html_content, height=600)  # Ajusta la altura según sea necesario
 
