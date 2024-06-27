@@ -25,7 +25,6 @@ warnings.filterwarnings('ignore')
 
 
 
-
 # Load the Excel file into a DataFrame
 file_path = "Scrapeadores.xlsx"
 df = pd.read_excel(file_path)
@@ -61,7 +60,7 @@ df = pd.read_excel(file_path)
 # Configuration of the side bar
 st.set_page_config(
     page_title="Los Saqueadores",
-    page_icon="🧊",
+    page_icon=":skull:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
