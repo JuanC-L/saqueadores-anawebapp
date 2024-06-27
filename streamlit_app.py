@@ -118,7 +118,7 @@ st.sidebar.markdown("<h1 class='sidebar-title' style='text-align:center;'>Los Sa
 with st.sidebar:
     selected = option_menu(
         menu_title=None,
-        options=["Home", "Busqueda de Personas", "Dashboard", "Apriori", "Random Forest","Clusters","ARIMA"],
+        options=["Home", "Busqueda de Personas", "Dashboard", "Apriori", "Mapa De Calor","Clusters","ARIMA"],
         icons=["house", "person-fill", "coin", "book", "person-fill", "book", "person-fill"],
         menu_icon="cast",
         default_index=0,
@@ -380,8 +380,12 @@ if selected == "Apriori":
 
 
 
-if selected == "Random Forest":
-    st.header('Random Forest')
+if selected == "Mapa De Calor":
+    st.header('Mapa De Calor')
+    html_file_path = 'mapa_interactivo.html'
+    with open(html_file_path, 'r', encoding='utf-8') as f:
+        html_content = f.read()
+        components.html(html_content, height=600)  # Ajusta la altura según sea necesario
 
 
 if selected == "Clusters":
