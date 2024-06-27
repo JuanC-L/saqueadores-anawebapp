@@ -386,7 +386,16 @@ if selected == "Random Forest":
 
 if selected == "Clusters":
     st.header('Grupos Asociados')
+    cluster_data = {
+        "Cluster_0_vs_Cluster_1": [-0.002641, 0.190385, 3.573445, 0.046478, 0.025184, -0.139584, -0.034321, 0.004827, 0.036518, -0.093174],
+        "Cluster_1_vs_Cluster_0": [0.002801, -0.182160, -3.359249, -0.047260, -0.025308, 0.149832, 0.034357, -0.004926, -0.036908, 0.102972]
+    }
+    cluster_index = ["Horas para Denunciar", "LUGAR DEL HECHO", "Instructor Policial", "EDAD", "ESTATURA", "NARIZ", "TEZ", "SANGRE", "CONTEXTURA", "FENOTIPO"]
+    cluster_df = pd.DataFrame(cluster_data, index=cluster_index)
 
+    # Mostrar la nueva tabla
+    st.header('Comparación de Clústeres')
+    st.dataframe(cluster_df, use_container_width=True)
 
 if selected == "ARIMA":
     st.header('Modelo Estacional de Tendencias')
