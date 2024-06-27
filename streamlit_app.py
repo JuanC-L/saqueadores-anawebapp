@@ -100,7 +100,17 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.sidebar.image("images\saqueadoreslogo.png", use_column_width=True)
+import streamlit as st
+import os
+
+# Correct the image path
+image_path = os.path.join(os.path.dirname(__file__), 'images', 'saqueadoreslogo.png')
+
+# Ensure the file exists
+if os.path.exists(image_path):
+    st.sidebar.image(image_path, use_column_width=True)
+else:
+    st.sidebar.error(f"Image file not found: {image_path}")
 
 st.sidebar.markdown("<h1 class='sidebar-title' style='text-align:center;'>Los Saqueadores</h1>", unsafe_allow_html=True)
 
